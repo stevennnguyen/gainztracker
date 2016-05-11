@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <% include ../partials/head %>
+	</head>
+	<body>
+        <% include ../partials/header %>
+
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1><%=title%> 
+          <p class="lead"></p>
+        </h1>
+        <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseWorkout" aria-expanded="false" aria-controls="collapseWorkout">Log Workout</button>
+        <button type="submit" class="btn btn-primary">Edit Workout</button> <!--add week/month view as well-->
+        <button type="submit" class="btn btn-danger pull-right">Delete Workouts</button>
+        <div class="collapse" id="collapseWorkout">
+          <div class="well">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-11"> 
+                  <div class="panel">
+                    <div class="panel-body">
+                      <div class="row">    
+                        <div class="col-md-7">
+                        <form method="POST">
+                          <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="text" name="date" class="form-control" id="date" placeholder="01/01/2016">
+                          </div>
+                          <div class="form-group">
+                            <label for="workout">Workout</label>
+                              <textarea type="text" name="workout" class="form-control" rows="3" id="workout" placeholder="Bench 5x5 350"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="thoughts">Thoughts</label>
+                              <textarea type="text" name="thoughts" class="form-control" rows="3" id="thoughts" placeholder="Today's workout was amazing!"></textarea>
+                          </div>                
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>                  
+                        </div>
+                      </div>
+                    </div>
+                  </div>                                                 
+                </div><!--/col-12-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+</div>
+        
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"> 
+      <div class="panel">
+        <div class="panel-body">
+          <!--/stories-->
+
+          <% for(var i=0; i<workouts.length;i++){%>
+          <div class="row">
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-title" href="#"><img alt="" src="http://icons.iconarchive.com/icons/icons8/ios7/256/Sports-Weightlift-icon.png" style="width:100px;height:100px" class="img-circle"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3><%=workouts[i].date%></h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><span class="label label-default"><%=workouts[i].workout%></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><a href="/Workouts/<%=i%>">Read More</a></small>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+            </div>
+          </div>
+          <%}%>
+            
+          <!--<%# workouts.forEach( function( workout ){ %>
+          <div class="row">    
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-title" href="#"><img alt="" src="http://icons.iconarchive.com/icons/icons8/ios7/256/Sports-Weightlift-icon.png" style="width:100px;height:100px" class="img-circle"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3><%#= workout.date %></h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><span class="label label-default"><%#= workout.workout %></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><a href="/Workouts/<%#=i%>" >Read More</a></small>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+
+            </div>
+          </div>
+          <hr>
+          <%# }); %>        
+          <!--/stories-->
+          
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+        
+          
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+
+<hr>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+	</body>
+</html>
