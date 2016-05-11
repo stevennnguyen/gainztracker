@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <% include ../partials/head %>
+	</head>
+	<body>
+        <% include ../partials/header %>
+
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1><%=title%>
+          <p class="lead"></p>
+        </h1>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12"> 
+      <div class="panel">
+        <div class="panel-body">
+          <!--/stories-->
+          <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-title" href="#"><img alt="" src="http://www.i2clipart.com/cliparts/5/d/9/0/clipart-books-5d90.png" style="width:100px;height:100px" class="img-circle"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3><%=book.title%></h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4>
+                      <span class="label label-default"><%=book.author%></span>
+                        <br>
+                      <span class="label label-default">Implement Book APIs here.</span>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+              <br><br>
+            </div>
+          </div>
+          <hr>
+          <!--/stories-->
+          <a href="/Books" class="btn btn-primary pull-right btnNext">Back</a>
+        </div>
+      </div>                                                
+   	</div><!--/col-12-->
+  </div>
+</div>
+
+<hr>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+	</body>
+</html>
