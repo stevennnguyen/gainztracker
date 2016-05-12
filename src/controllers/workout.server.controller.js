@@ -4,6 +4,18 @@ var Workout = require('../models/workout.server.model.js');
 exports.list = function (req, res) {
     var query = Workout.find();
     query
+    .sort({dateLogged: 'asc'})
+    .exec(function(err, workouts) {
+        res.render('workoutListView', {
+            title : 'Express Example',
+            workouts : workouts
+        });
+    });
+};
+
+exports.listDesc = function (req, res) {
+    var query = Workout.find();
+    query
     .sort({dateLogged: 'desc'})
     .exec(function(err, workouts) {
         res.render('workoutListView', {
