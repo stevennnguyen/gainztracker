@@ -25,16 +25,13 @@ app.use(express.static('public'));
 app.set('views', './src/views/pages');
 app.set('view engine', 'ejs');
 
-var bookRouter = require('./src/routes/bookRoutes')();//nav);
-var workoutRouter = require('./src/routes/workoutRoutes')();//nav);
+var workoutRouter = require('./src/routes/workoutRoutes')();
 
-app.use('/Books', bookRouter);
 app.use('/Workouts', workoutRouter);
 
 app.get('/', function (req, res) {
     res.render('index', {
-        title: 'Gains Tracker'//,
-        //nav: nav
+        title: 'Gains Tracker'
     });
 });
 
