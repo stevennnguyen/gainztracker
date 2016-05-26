@@ -1,7 +1,16 @@
 var Workout = require('../models/workout.server.model.js');
 
-// query db for all workout items in descinding order from when it was created
 exports.list = function (req, res) {
+    var query = Workout.find();
+    query
+    .sort({dateLogged: 'asc'})
+    .exec(function(err, workouts) {
+        res.json({workouts : workouts});
+    });
+};
+
+// query db for all workout items in descinding order from when it was created
+exports.list1 = function (req, res) {
     var query = Workout.find();
     query
     .sort({dateLogged: 'asc'})
@@ -50,4 +59,8 @@ exports.create = function(req, res) {
     });
     // rerender workout page after saving data
     res.redirect(301, '/Workouts');
+};
+
+exports.remove = function(req, res) {
+    console.log('you hit this function');
 };
