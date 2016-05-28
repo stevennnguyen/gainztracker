@@ -2,7 +2,7 @@
   "name": "gainstracker",
   "version": "1.0.0",
   "description": "Application that will keep track of your week to week progress in making gains.",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"

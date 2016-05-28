@@ -31,15 +31,15 @@ gulp.task('inject', function () {
         directory: './public/lib',
         ignorePath: '../../public/'
     };
-    return gulp.src('./src/views/*.ejs')
+    return gulp.src('./public/views/*.ejs')
         .pipe(wiredep(options))
         .pipe(inject(injectSrc, injectOptions))
-        .pipe(gulp.dest('./src/views'));
+        .pipe(gulp.dest('./public/views'));
 });
 
 gulp.task('serve', ['style', 'inject'], function () {
     var options = {
-        script: 'app.js',
+        script: 'server.js',
         delayTime: 1,
         env: {
             'PORT': 3000
